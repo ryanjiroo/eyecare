@@ -4,12 +4,26 @@
     {
       "src": "app.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "index.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "app.py"
     }
-  ]
+  ],
+  "env": {
+    "VAPOR_BUILD_TIMEOUT": "240"
+  },
+  "github": {
+    "silent": true
+  }
 }
